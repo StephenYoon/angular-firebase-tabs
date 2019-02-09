@@ -7,8 +7,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 * npm install popper.js --save
 * npm install bootstrap4 --save
 * update angular.json "styles" in include "node_modules/bootstrap/dist/css/bootstrap.min.css"
-* optionally, to publish to github pages: ng build --prod --output-path docs --base-href /<project name/
-* and then to go your repository settings and enable pages with your "docs" folder
+
+To publish to GitHub pages:
+* build your angular app to folder "docs": ng build --prod --output-path docs --base-href /<project name>/
+* then to go your repository settings and enable pages with your "docs" folder
 
 ## Development server
 
