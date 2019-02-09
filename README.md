@@ -10,7 +10,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 To publish to GitHub pages:
 * build your angular app to folder "docs": ng build --prod --output-path docs --base-href /<project name>/
-* then to go your repository settings and enable pages with your "docs" folder
+* when the build is complete, make a copy of docs/index.html and name it docs/404.html.
+* https://angular.io/guide/deployment
+* in the GitHub project page, configure it to publish from the docs folder
 
 ## Development server
 
