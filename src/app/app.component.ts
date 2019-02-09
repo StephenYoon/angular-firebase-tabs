@@ -21,8 +21,8 @@ export class AppComponent {
 
   title = 'Managing Tabs with Angular & Firebase!';
   
-  save(tab: Tab): void {
-    if(tab.name.trim() != '' && tab.url.trim() != ''){
+  save(): void {
+    if(this.newTab.name.trim() != '' || this.newTab.url.trim() != '') {
       this.newTab.date_updated = Date();
       this.firebaseService.createTab(this.newTab);
     }
