@@ -12,22 +12,22 @@
       
       <h3>Here are your tabs: </h3>
       <div class="row">
-        <article class="col">
+        <article class="col-sm-6 col-md-4">
             <h3>Google</h3>
             <p><a href="https://www.google.ca/" target="_blank">https://www.google.ca/</a></p>
         </article>
         
-        <article class="col">
+        <article class="col-sm-6 col-md-4">
             <h3>YouTube</h3>
             <p><a href="https://www.youtube.ca/" target="_blank">https://www.youtube.ca/</a></p>
         </article>
         
-        <article class="col">
+        <article class="col-sm-6 col-md-4">
             <h3>Netflix</h3>
             <p><a href="https://www.netflix.ca/" target="_blank">https://www.netflix.ca/</a></p>
         </article>
         
-        <article class="col">
+        <article class="col-sm-6 col-md-4">
             <h3>Amazon</h3>
             <p><a href="https://www.amazon.ca/" target="_blank">https://www.amazon.ca/</a></p>
         </article>
@@ -39,11 +39,11 @@
       <div class="col">          
         <h2>Add a new tab:</h2>
           <label>Tab Name:
-              <input type="text" class="form-control" placeholder="Enter tab name..."/>
+              <input [(ngModel)]="newTab.name" placeholder="Enter tab name..."/>
           </label>
           
           <label>Tab URL:
-              <input type="text" class="form-control" placeholder="Enter tab URL..."/>
+              <input [(ngModel)]="newTab.url" placeholder="Enter tab URL..."/>
           </label>        
           <button type="button" class="btn btn-primary" (click)="save()">Add</button>
       </div><!--col-->

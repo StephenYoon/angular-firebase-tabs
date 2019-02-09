@@ -16,7 +16,8 @@ export class FirebaseService {
   }
 
   getTab(tabId){
-    return this.db.collection('tabs').doc(tabId).snapshotChanges();
+    //return this.db.collection('tabs').doc(tabId).snapshotChanges();
+    return this.db.collection('tabs', ref => ref.where('id', '==', tabId)).snapshotChanges();
   }
 
   updateTab(tab){
@@ -43,9 +44,12 @@ export class FirebaseService {
   }
 
   createTab(tab: Tab){
+    var tabId = this.getTabId(tab.name);
+    // TODO: check if tabId already exists in db.
+
     return this.db.collection('tabs').add({
-      id: this.getTabId(tab.name),
-      name: tab,
+      id: tabId,
+      name: tab.name,
       url: tab.url,
       date_updated: Date()
     });
