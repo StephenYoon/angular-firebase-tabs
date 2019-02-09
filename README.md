@@ -3,7 +3,10 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.2.
 
 * npm install @angular/fire firebase --save
-* npm install bootstrap4
+* npm install jquery --save
+* npm install popper.js --save
+* npm install bootstrap4 --save
+* update angular.json "styles" in include "node_modules/bootstrap/dist/css/bootstrap.min.css"
 
 ## Development server
 
