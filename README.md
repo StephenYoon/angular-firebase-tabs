@@ -8,6 +8,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 * npm install bootstrap4 --save
 * update angular.json "styles" in include "node_modules/bootstrap/dist/css/bootstrap.min.css"
 
+To publish to GitHub pages:
+* build your angular app to folder "docs": ng build --prod --output-path docs --base-href /<project name>/
+* then to go your repository settings and enable pages with your "docs" folder
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
