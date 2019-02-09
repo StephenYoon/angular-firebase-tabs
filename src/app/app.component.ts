@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-firebase-tabs';
+  title = 'Managing Tabs with Angular & Firebase!';
 }

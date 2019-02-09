@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Tab } from '../models/tab';
 
 @Injectable({
   providedIn: 'root'
@@ -8,45 +9,45 @@ export class FirebaseService {
 
   constructor(public db: AngularFirestore) {}
 
-  getAvatars(){
-      return this.db.collection('/avatar').valueChanges()
+  getTabId(name){
+    var tabId = name.toLowerCase();
+    tabId = tabId.replace(" ","_");
+    return tabId;
   }
 
-  getUser(userKey){
-    return this.db.collection('users').doc(userKey).snapshotChanges();
+  getTab(tabId){
+    return this.db.collection('tabs').doc(tabId).snapshotChanges();
   }
 
-  updateUser(userKey, value){
-    value.nameToSearch = value.name.toLowerCase();
-    return this.db.collection('users').doc(userKey).set(value);
+  updateTab(tab){
+    tab.url = tab.url.toLowerCase();
+    return this.db.collection('tabs').doc(tab.tabId).set(tab);
   }
 
-  deleteUser(userKey){
-    return this.db.collection('users').doc(userKey).delete();
+  deleteTab(tabId){
+    return this.db.collection('tabs').doc(tabId).delete();
   }
 
-  getUsers(){
-    return this.db.collection('users').snapshotChanges();
+  getTabs(){
+    return this.db.collection('tabs').snapshotChanges();
   }
 
-  searchUsers(searchValue){
-    return this.db.collection('users',ref => ref.where('nameToSearch', '>=', searchValue)
-      .where('nameToSearch', '<=', searchValue + '\uf8ff'))
+  searchTabs(searchValue){
+    return this.db.collection('tabs',ref => ref.where('name', '>=', searchValue)
+      .where('name', '<=', searchValue + '\uf8ff'))
       .snapshotChanges()
   }
 
-  searchUsersByAge(value){
-    return this.db.collection('users',ref => ref.orderBy('age').startAt(value)).snapshotChanges();
+  searchTabsByName(value){
+    return this.db.collection('tabs',ref => ref.orderBy('name').startAt(value)).snapshotChanges();
   }
 
-
-  createUser(value, avatar){
-    return this.db.collection('users').add({
-      name: value.name,
-      nameToSearch: value.name.toLowerCase(),
-      surname: value.surname,
-      age: parseInt(value.age),
-      avatar: avatar
+  createTab(tab: Tab){
+    return this.db.collection('tabs').add({
+      id: this.getTabId(tab.name),
+      name: tab,
+      url: tab.url,
+      date_updated: Date()
     });
   }
 }
