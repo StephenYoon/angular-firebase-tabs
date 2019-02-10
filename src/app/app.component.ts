@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
     this.newTab.id = '';
     this.newTab.name = '';
     this.newTab.url = '';
+    this.newTab.notes = '';
     this.newTab.date_updated = '';
   }
 
@@ -27,9 +28,12 @@ export class AppComponent implements OnInit {
   title = 'Managing Tabs with Angular & Firebase!';
   
   save(): void {
+    //window.open('http://www.google.com/', '_blank');
+    /*
     if(this.newTab.name.trim() != '' && this.newTab.url.trim() != '') {
       this.newTab.date_updated = Date();
       this.firebaseService.createTab(this.newTab);
     }
+    */
   }
 }
