@@ -6,46 +6,36 @@
   <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
 </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col">
-      
-      <h3>Here are your tabs: </h3>
-      <div class="row">
-        <article class="col-sm-6 col-md-4">
-            <h3>Google</h3>
-            <p><a href="https://www.google.ca/" target="_blank">https://www.google.ca/</a></p>
-        </article>
-        
-        <article class="col-sm-6 col-md-4">
-            <h3>YouTube</h3>
-            <p><a href="https://www.youtube.ca/" target="_blank">https://www.youtube.ca/</a></p>
-        </article>
-        
-        <article class="col-sm-6 col-md-4">
-            <h3>Netflix</h3>
-            <p><a href="https://www.netflix.ca/" target="_blank">https://www.netflix.ca/</a></p>
-        </article>
-        
-        <article class="col-sm-6 col-md-4">
-            <h3>Amazon</h3>
-            <p><a href="https://www.amazon.ca/" target="_blank">https://www.amazon.ca/</a></p>
-        </article>
-      </div>
-    </div><!--col-->
-  </div><!--row-->
 
+<div class="container">
+  <h3 class="mx-2">Here are your tabs: </h3>
   <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4" *ngFor="let tab of tabs">
+      <div class="card mx-2 my-2 aln-item-center">
+        <div class="card-header">
+            <h4 class="card-title">{{tab.name}}</h4>
+        </div>
+        <div class="card-body">
+          <p class="card-text">{{tab.notes}}</p>
+          <a class="card-link" href="{{tab.url}}" target="_blank">{{tab.url}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-3">
       <div class="col">          
-        <h2>Add a new tab:</h2>
-          <label>Tab Name:
-              <input [(ngModel)]="newTab.name" placeholder="Enter tab name..."/>
-          </label>
-          
-          <label>Tab URL:
-              <input [(ngModel)]="newTab.url" placeholder="Enter tab URL..."/>
-          </label>        
-          <button type="button" class="btn btn-primary" (click)="save()">Add</button>
+        <div class="card mx-2 my-2 aln-item-center">
+            <div class="card-header">
+                <h4 class="card-title">Add a new tab:</h4>
+            </div>
+            <div class="card-body">
+              <p class="card-text">Tab Name: <input [(ngModel)]="newTab.name" placeholder="Enter tab name..."/></p>
+              <p class="card-text">Tab Name: <input [(ngModel)]="newTab.url" placeholder="Enter tab URL..."/></p>
+              <p class="card-text">Tab Name: <input [(ngModel)]="newTab.notes" placeholder="Enter notes..."/></p>
+              <button type="button" class="btn btn-primary" (click)="save()">Add</button>
+            </div>
+        </div>
       </div><!--col-->
   </div><!--row-->
 </div> <!--container-->

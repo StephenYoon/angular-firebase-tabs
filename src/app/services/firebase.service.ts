@@ -9,6 +9,17 @@ export class FirebaseService {
 
   constructor(public db: AngularFirestore) {}
 
+  getTestData(): Tab[] {
+    const tabs: Tab[] = [
+      { id: 'google', name: 'Google', url: 'https://www.google.ca/', notes: 'Best search engine, maybe', date_updated: Date() },
+      { id: 'netflix', name: 'Netflix', url: 'https://www.netflix.ca/', notes: 'What is playing now', date_updated: Date() },
+      { id: 'youtube', name: 'YouTube', url: 'https://www.youtube.ca/', notes: 'You what?', date_updated: Date() },
+      { id: 'amazon', name: 'Amazon', url: 'https://www.amazon.ca/', notes: 'Buy something, now, hurry!', date_updated: Date() },
+    ];
+
+    return tabs;
+  }
+
   getTabId(name){
     var tabId = name.toLowerCase();
     tabId = tabId.replace(" ","_");

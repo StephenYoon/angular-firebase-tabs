@@ -7,7 +7,7 @@ import { Tab } from './models/tab';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {  
+export class AppComponent implements OnInit {  
   constructor(
     private firebaseService: FirebaseService
   ) {    
@@ -17,7 +17,12 @@ export class AppComponent {
     this.newTab.date_updated = '';
   }
 
+  ngOnInit() {
+    this.tabs = this.firebaseService.getTestData();
+  }
+
   newTab = new Tab ();
+  tabs: Tab[] = [];
 
   title = 'Managing Tabs with Angular & Firebase!';
   
